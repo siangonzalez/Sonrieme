@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Sticker 4 · Tu sonrisa nos inspira</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  .pill { top: 150px; height: 200px; background: var(--hielo); }
+  .hairline { left: 26px; right: 26px; top: 166px; height: 168px; border-radius: 999px; }
+  .row {
+    position: absolute; left: 0; right: 0; top: 150px; height: 200px;
+    display: flex; align-items: center; justify-content: center; gap: 22px;
+  }
+  .iso { width: 52px; height: 80px; display: block; }
+  .text {
+    color: var(--marino);
+    font-family: 'Cinzel', serif; font-weight: 600;
+    font-size: 44px; line-height: 1.12;
+  }
+  .w { display: inline-block; opacity: 0; animation: 2s infinite both; }
+  .w1 { animation-name: w1; } .w2 { animation-name: w2; }
+  .w3 { animation-name: w3; } .w4 { animation-name: w4; }
+  /* Cada palabra entra a su turno; todas salen juntas al final del loop */
+  @keyframes w1 { 0%, 3% { opacity: 0; transform: translateY(14px); } 15%, 84% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; transform: none; } }
+  @keyframes w2 { 0%, 17% { opacity: 0; transform: translateY(14px); } 29%, 84% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; transform: none; } }
+  @keyframes w3 { 0%, 31% { opacity: 0; transform: translateY(14px); } 43%, 84% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; transform: none; } }
+  @keyframes w4 { 0%, 45% { opacity: 0; transform: translateY(14px); } 57%, 84% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; transform: none; } }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="pill"></div>
+  <div class="hairline"></div>
+  <div class="row">
+    <img class="iso" src="../../img/isotipo.png" alt="">
+    <div class="text">
+      <span class="w w1">Tu</span> <span class="w w2">sonrisa</span><br>
+      <span class="w w3">nos</span> <span class="w w4">inspira</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

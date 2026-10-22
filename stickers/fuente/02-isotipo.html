@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Sticker 2 · Isotipo</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  .hairline { inset: 30px; border-radius: 50%; }
+  /* Isotipo 130×200 escalado a 300 px de alto */
+  .iso, .glint {
+    position: absolute; width: 195px; height: 300px;
+    left: calc(50% - 97.5px); top: calc(50% - 150px);
+  }
+  .iso { display: block; }
+  /* Reflejo: banda de luz recortada a la silueta del diente */
+  .glint {
+    overflow: hidden;
+    -webkit-mask: url('../../img/isotipo.png') center / 100% 100% no-repeat;
+            mask: url('../../img/isotipo.png') center / 100% 100% no-repeat;
+  }
+  .band {
+    position: absolute; top: -80px; left: 0; width: 90px; height: 460px;
+    background: linear-gradient(90deg,
+      rgba(255, 250, 235, 0) 0%, rgba(255, 250, 235, 0.7) 28%,
+      #FFFFFF 50%, rgba(255, 250, 235, 0.7) 72%, rgba(255, 250, 235, 0) 100%);
+    animation: sweep 2s infinite both;
+  }
+  @keyframes sweep {
+    0%   { transform: translateX(-190px) rotate(22deg); animation-timing-function: cubic-bezier(.45, 0, .35, 1); }
+    55%  { transform: translateX(300px) rotate(22deg); }
+    100% { transform: translateX(300px) rotate(22deg); }
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="disk"></div>
+  <div class="hairline"></div>
+  <img class="iso" src="../../img/isotipo.png" alt="">
+  <div class="glint"><div class="band"></div></div>
+  <div class="sparkle" style="--x:338px; --y:118px; --s:76px; --d:calc(0.95s - 2s)"></div>
+</div>
+<script src="sparkle.js"></script>
+</body>
+</html>
