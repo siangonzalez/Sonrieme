@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Sticker · Tu sonrisa nos inspira</title>
+<link rel="stylesheet" href="sticker.css">
+<style>
+  .pill { top: 150px; height: 200px; background: var(--hielo); }
+  .hairline { left: 26px; right: 26px; top: 166px; height: 168px; border-radius: 999px; }
+  .row { position: absolute; left: 0; right: 0; top: 150px; height: 200px;
+         display: flex; align-items: center; justify-content: center; gap: 22px; }
+  .iso { width: 52px; height: 80px; display: block; }
+  .text { color: var(--marino); font-family: 'Cinzel', serif; font-weight: 600; font-size: 44px; line-height: 1.12; }
+  .w { display: inline-block; opacity: 0; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="pill"></div>
+  <div class="hairline"></div>
+  <div class="row">
+    <img class="iso" src="../../../img/isotipo.png" alt="">
+    <div class="text"><span class="w">Tu</span> <span class="w">sonrisa</span><br><span class="w">nos</span> <span class="w">inspira</span></div>
+  </div>
+</div>
+<script src="anim.js"></script>
+<script>
+  const words = [...document.querySelectorAll('.w')];
+  // Cada palabra entra a su turno; todas salen juntas al final del loop
+  window.setT = t => {
+    const salida = 1 - seg(t, 1.68, 1.92);
+    words.forEach((w, i) => {
+      const p = ease.out(seg(t, 0.06 + 0.28 * i, 0.3 + 0.28 * i));
+      w.style.opacity = p * salida;
+      w.style.transform = `translateY(${14 * (1 - p)}px)`;
+    });
+  };
+  setT(0);
+</script>
+</body>
+</html>

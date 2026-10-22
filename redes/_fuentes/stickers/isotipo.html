@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Sticker · Isotipo</title>
+<link rel="stylesheet" href="sticker.css">
+<style>
+  .hairline { inset: 30px; border-radius: 50%; }
+  /* Isotipo 130×200 escalado a 300 px de alto */
+  .iso, .glint { position: absolute; width: 195px; height: 300px; left: 152.5px; top: 100px; }
+  .iso { display: block; }
+  /* Reflejo: banda de luz recortada a la silueta del diente */
+  .glint { overflow: hidden;
+    -webkit-mask: url('../../../img/isotipo.png') center / 100% 100% no-repeat;
+            mask: url('../../../img/isotipo.png') center / 100% 100% no-repeat; }
+  .band { position: absolute; top: -80px; left: 0; width: 90px; height: 460px;
+    background: linear-gradient(90deg, rgba(255, 250, 235, 0) 0%, rgba(255, 250, 235, 0.7) 28%,
+      #FFFFFF 50%, rgba(255, 250, 235, 0.7) 72%, rgba(255, 250, 235, 0) 100%); }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="disk"></div>
+  <div class="hairline"></div>
+  <img class="iso" src="../../../img/isotipo.png" alt="">
+  <div class="glint"><div class="band"></div></div>
+</div>
+<script src="anim.js"></script>
+<script>
+  const band = document.querySelector('.band');
+  const sp = sparkle(338, 118, 76);
+  window.setT = t => {
+    const x = -190 + 490 * ease.inOut(seg(t, 0, 1.1));
+    band.style.transform = `translateX(${x}px) rotate(22deg)`;
+    twinkle(sp, t, 0.95);
+  };
+  setT(0);
+</script>
+</body>
+</html>

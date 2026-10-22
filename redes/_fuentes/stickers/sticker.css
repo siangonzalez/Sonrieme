@@ -1,0 +1,16 @@
+/* Base común de los stickers GIPHY (500×500, fondo transparente) */
+@font-face { font-family: 'Cinzel'; src: url('../fonts/Cinzel.ttf'); font-weight: 400 900; }
+@font-face { font-family: 'Montserrat'; src: url('../fonts/Montserrat.ttf'); font-weight: 100 900; }
+:root {
+  --blanco: #FFFFFF; --hielo: #EEF3F8; --marino: #1F3A5F;
+  --dorado: #B8913F; --dorado-claro: #C9A84C; --borde: 12px;
+}
+html, body { margin: 0; background: transparent; }
+.stage { position: relative; width: 500px; height: 500px; overflow: hidden; }
+/* Base sólida con borde dorado: es lo único que toca la transparencia de 1 bit */
+.disk, .pill { position: absolute; box-sizing: border-box; border: var(--borde) solid var(--dorado); }
+.disk { inset: 10px; border-radius: 50%; background: var(--blanco); }
+.pill { left: 10px; right: 10px; border-radius: 999px; }
+.hairline { position: absolute; box-sizing: border-box; border: 1.5px solid var(--dorado-claro); }
+.sparkle { position: absolute; transform: scale(0); }
+.sparkle svg { display: block; width: 100%; height: 100%; overflow: visible; }
